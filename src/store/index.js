@@ -3,6 +3,7 @@ import Tasks from "./modules/Tasks";
 import TasksDad from "./modules/TasksDad";
 import TasksSon from "./modules/TasksSon";
 import TasksDaughter from "./modules/TasksDaughter";
+// import TasksDaughter from "./modules/TasksDaughter";
 
 export default createStore({
     state:{

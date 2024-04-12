@@ -56,14 +56,18 @@
 
 <style lang="scss" scoped>
     .footer{
-      justify-content: space-between;
-        gap: 10px;
-        margin-bottom: 134px;
-        margin-top: 100px;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        // background-color: #333;
+        // color: white;
+        text-align: center;
+        margin-top: 50px;
     
     &__interno{
         &__logo{
-            margin-bottom: 18px;
+            // margin-bottom: 18px;
 
         }
         &__text{
@@ -100,7 +104,8 @@
     
         &__links{
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            // flex-direction: column;
            
             color: rgb(77, 80, 83);
             font-family: Jost;

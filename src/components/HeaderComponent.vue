@@ -45,6 +45,16 @@
                         title:"Задачи дочери",
                         url:"/TasksDaughterPage"
                     },
+                    {
+                    id:6,
+                        title:"Кредитный калькулятор",
+                        url:"/MortgageCalculatorPage"
+                    },
+                    {
+                    id:7,
+                        title:"Бюджет",
+                        url:"/BudgetPage"
+                    },
                 
                 ]
             }
@@ -62,7 +72,7 @@
 .header{
     
     margin-top: 15px;
-    margin-bottom: 22px;
+    margin-bottom: 18px;
    
     &__flex{
         @include flexSBcenter(none);
