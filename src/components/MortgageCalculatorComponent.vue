@@ -84,24 +84,35 @@
             const interestPayment = balance * this.monthlyInterestRate;
             const principalPayment = this.monthlyPayment - interestPayment;
             balance -= principalPayment;
-
+            
             this.payments.push({ month: i + 1, balance: balance, monthlyPayment: this.monthlyPayment, principal: principalPayment, interest: interestPayment,extraPayment:0 });
           }
         },
         addAdditionalPayment(month, additionalPaymentAmount) {
-            if (month >= 1 && month <= this.loanTermInMonths&&this.payments[month-1].balance>0) {
-              this.payments[month-1].principal+=additionalPaymentAmount;
-              this.payments[month-1].balance-=additionalPaymentAmount;
-              this.payments[month-1].extraPayment+=additionalPaymentAmount;
+            if (month >= 1 && month <= this.loanTermInMonths) {
+                    if(additionalPaymentAmount<=this.payments[month-1].balance){
+                    this.payments[month-1].principal+=additionalPaymentAmount;
+                    this.payments[month-1].balance-=additionalPaymentAmount;
+                    this.payments[month-1].extraPayment+=additionalPaymentAmount;
+                  }else{
+                    this.payments[month-1].extraPayment+=this.payments[month-1].balance;
+                    this.payments[month-1].principal+=this.payments[month-1].balance;
+                    this.payments[month-1].balance=0;
+                  }
               
-              for (let i = month; i < this.loanTermInMonths; i++) {
-                this.payments[i].interestPayment =this.payments[i-1].balance * this.monthlyInterestRate;
-                this.payments[i].principalPayment = this.monthlyPayment - this.payments[i].interestPayment;
-                this.payments[i].balance = this.payments[i-1].balance-this.payments[i].principalPayment ;
+
+              for (let i = month; i < this.payments.length; i++) {
+                  this.payments[i].interest =this.payments[i-1].balance * this.monthlyInterestRate;
+                  this.payments[i].principal = this.monthlyPayment - this.payments[i].interest+this.payments[i].extraPayment;
+                  if(this.payments[i].principal>this.payments[i-1].balance){
+                    this.payments[i].principal=this.payments[i-1].balance;
+                  }  
+                  this.payments[i].balance = this.payments[i-1].balance-this.payments[i].principal;
+                
               }
             } else {
-              console.log('Wrong month provided for additional payment or balance <0.');
-              alert('Wrong month provided for additional payment or balance <0.');
+              console.log('Wrong month provided for additional payment.');
+              alert('Неправильно введен номер для дополнительного платежа');
             }
         },
         removeAdditionalPayment(month) {
@@ -111,10 +122,12 @@
               this.payments[month-1].extraPayment=0;
               
               for (let i = month; i < this.loanTermInMonths; i++) {
-                
-                this.payments[i].interestPayment =this.payments[i-1].balance * this.monthlyInterestRate;
-                this.payments[i].principalPayment = this.monthlyPayment - this.payments[i].interestPayment;
-                this.payments[i].balance = this.payments[i-1].balance-this.payments[i].principalPayment ;
+                this.payments[i].interest=this.payments[i-1].balance * this.monthlyInterestRate;
+                this.payments[i].principal= this.monthlyPayment - this.payments[i].interest+this.payments[i].extraPayment;
+                if(this.payments[i].principal>this.payments[i-1].balance){
+                    this.payments[i].principal=this.payments[i-1].balance;
+                  }  
+                this.payments[i].balance = this.payments[i-1].balance-this.payments[i].principal;
               }
             } else {
               console.log('No extraPayment in this month');
