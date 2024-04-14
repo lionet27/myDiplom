@@ -160,4 +160,79 @@ import { mapState, mapGetters, mapMutations, mapActions,mapModules} from "vuex";
         }
     }
  } 
+ @media (max-width:1024px) {
+    .addTask{
+        font-size: 16px;
+        &__title{
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        &__content{
+            width: 500px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            
+        }
+        &__date{
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        &__points{
+            width: 200px;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        &__buttons{
+            padding: 6px;
+            border-radius: 45%;
+            margin-bottom: 20px;
+        
+        }
+        &__list{
+            &__title{
+                font-size: 20px;
+                margin-bottom: 10px;
+            }
+        }
+ }   
+}   
+@media (max-width:767px) {
+    .addTask{
+        font-size: 14px;
+        &__title{
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+        &__content{
+            width: 350px;
+            font-size: 14px;
+            margin-bottom: 10px;
+            
+        }
+        &__date{
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        &__points{
+            width: 200px;
+            font-size: 12px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        &__buttons{
+            padding: 6px;
+            border-radius: 45%;
+            margin-bottom: 15px;
+        
+        }
+        &__list{
+            &__title{
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+        }
+ }   
+    
+} 
 </style>

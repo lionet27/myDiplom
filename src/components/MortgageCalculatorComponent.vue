@@ -128,10 +128,8 @@
 <style lang="scss" scoped>
 .overdue {
         color: red;
-        }
-  .MortgageCalculatorComponent{
-   
-    }
+}
+  
   .MortgageCalculator{
     font-family: Jost;
       display: flex;
@@ -182,5 +180,86 @@
       }
     }
   }
+@media (max-width:1024px) {
+  .MortgageCalculator{
+    
+    &__title{
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+  
+    &__loan{
+      
+      &__label{
+        font-size: 14px;
+      }
+      &__input{
+        text-align: left;
+          width: 70px;
+          font-size: 14px;
+          margin:0px 7px 5px 2px;
+        
+      }
+      &__button{
+        font-size: 14px;
+       
+      }
+
+    }
+    &__table{
+      width: 120px;
+      font-size: 12px;
+      
+      &__month{
+        width: 30px;
+        font-size: 12px;
+      }
+      &__calculate  {
+        text-align: center;
+      }
+    }
+  }
+}   
+@media (max-width:767px) {
+  .MortgageCalculator{
+    
+    &__title{
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+  
+    &__loan{
+      
+      &__label{
+        font-size: 12px;
+      }
+      &__input{
+        text-align: left;
+          width: 70px;
+          font-size: 12px;
+          margin:0px 7px 5px 2px;
+        
+      }
+      &__button{
+        font-size: 12px;
+       
+      }
+
+    }
+    &__table{
+      width: 120px;
+      font-size: 10px;
+      
+      &__month{
+        width: 30px;
+        font-size: 10px;
+      }
+      &__calculate  {
+        text-align: center;
+      }
+    }
+  } 
+  
+} 
 
 </style>

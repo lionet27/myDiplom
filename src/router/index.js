@@ -8,6 +8,7 @@ import TasksSonPage from '@/pages/TasksSonPage.vue';
 import TasksDaughterPage from '@/pages/TasksDaughterPage.vue';
 import MortgageCalculatorPage from '@/pages/MortgageCalculatorPage.vue';
 import BudgetPage from '@/pages/BudgetPage.vue';
+import DescriptionPage from '@/pages/DescriptionPage.vue';
 import NotFound from '@/pages/NotFoundPage.vue';
 
 const routes=[
@@ -45,6 +46,11 @@ const routes=[
         path:"/TimeManagementAdvicesPage",
         name:"TimeManagementAdvicesPage",
         component:TimeManagementAdvicesPage,
+    },
+    {
+        path:"/DescriptionPage",
+        name:"DescriptionPage",
+        component:DescriptionPage,
     },
     {
         path:"/MortgageCalculatorPage",

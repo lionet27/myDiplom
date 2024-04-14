@@ -13,11 +13,24 @@ a{
 }
 
 .container {
-    margin: 0 auto;
-    max-width: $widthSite;
+    // margin: 0 auto;
+    max-width: 1140;
 }
 
 .center {
     padding-left: calc(50% - $widthSite/2);
     padding-right: calc(50% - $widthSite/2);
 }
+@media (max-width:1024px) {
+    .center {
+        padding-left: calc(50% - 380px);
+        padding-right: calc(50% - 380px);
+    }
+} 
+@media (max-width:767px) {
+
+    .center {
+        padding-left: calc(50% - 200px);
+        padding-right: calc(50% - 200px);
+    }
+}      

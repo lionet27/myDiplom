@@ -87,10 +87,7 @@
     .overdue {
         color: red;
         }
-  /* .taskItem{
-
-  } */
-
+  
     .button{
         background-color: rgb(191, 187, 182);
         border-radius: 2%;

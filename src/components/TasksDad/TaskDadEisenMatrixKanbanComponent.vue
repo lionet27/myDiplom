@@ -177,5 +177,66 @@
             font-size: 22px;
         }
     }
+    @media (max-width:1024px) {
+    .EisenhowerMatrixComponent{
+    margin-bottom: 15px;
+    &__title{
+        font-size: 22px;
+        margin-bottom: 8px;
+    }
+}
+.EisenhowerMatrix{
+    &__name{
+        font-size: 16px;  
+    }
+}
+.EisenhowerMatrixItem__tasks{
+    padding: 10px;
+   
+}
+.kanbanComponent{
+        margin-bottom: 15px;
+        &__title{
+            font-size: 22px;
+            margin-bottom: 8px; 
+        }
+    }
+    .kanban{
+        &__name{
+            font-size: 20px;
+        }
+    }
+}
+@media (max-width:767px) {
+.EisenhowerMatrixComponent{
+    margin-bottom: 10px;
+    &__title{
+        font-size: 20px;
+        margin-bottom: 8px;
+    }
+}
+.EisenhowerMatrix{
+    &__name{
+        font-size: 14px;  
+    }
+}
+.EisenhowerMatrixItem__tasks{
+    padding: 10px;
+    font-size: 12px;
+   
+}
+.kanbanComponent{
+        margin-bottom: 10px;
+        &__title{
+            font-size: 18px;
+            margin-bottom: 8px; 
+        }
+    }
+    .kanban{
+        &__name{
+            font-size: 18px;
+        }
+    }    
+} 
 
 </style>

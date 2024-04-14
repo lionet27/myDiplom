@@ -55,4 +55,19 @@
         font-size: 35px;
         margin-bottom: 40px;
 }
+@media (max-width:1024px) {
+    .taskName{
+   
+        font-size: 25px;
+        margin-bottom: 30px;
+} 
+}   
+@media (max-width:767px) {
+    .taskName{
+   
+   font-size: 20px;
+   margin-bottom: 20px;
+} 
+  
+} 
 </style>
