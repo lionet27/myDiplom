@@ -12,7 +12,7 @@
                     <router-link  class="heading__left__links" v-for="link in taskLinks" :key="link.id" :to="link.url ">
                    <img height="50px" :src=link.img alt=""> {{link.title }}
                 </router-link>
-                   <!-- <button class="banner__button">Get Started <img src="../assets/img/Vector.svg" alt="vector"></button> -->
+                  
                 </div> 
                 <div class="heading__center">
                     <img class="heading__center__img" src="../assets/img/TimBumbaSimbaRest.jpg" alt="">
@@ -28,16 +28,10 @@
                 </div>
 
             </div>   
-            <!-- <div class="banner__wrapper">
-               
-            </div> -->
             
         </div> 
     </div>
     
-    
- 
-   
     <FooterComponent/>
 </template>
 
@@ -68,14 +62,13 @@
                         url:"/BudgetPage"
                     },
                    
-                
                 ],
                 taskLinks:[
                     
                     {
                         id:1,
                         title:"Мамы",
-                        url:"/TasksPage",
+                        url:"/TasksMamPage",
                         img:require("@/assets/img/Nala.jpg") 
                     },
                     {
@@ -109,7 +102,6 @@
         &__content{
             display: flex;
             justify-content: space-between;
-            // align-items: center;
             gap: 12px;
         }
         &__left{
@@ -138,8 +130,6 @@
         &__right{
             display: flex;
             flex-direction: column;
-            
-            // justify-content: start;
             align-items: center;
             gap: 50px;
             &__title{
@@ -154,7 +144,6 @@
                 border-radius: 34%;
                 background-color: rgb(240, 202, 9);
                 &:hover{
-                    // border: solid 2px rgb(217, 169, 12);
                     border-radius: 24%;
                     background-color: rgb(230, 222, 103); 
                 }
@@ -171,7 +160,6 @@
     $colorCount:#CDA274;
     
     .banner{
-        // margin-top:15px;
         margin-bottom: 10px;
         text-align: center;
         &__wrapper{
@@ -181,7 +169,6 @@
         &__img{
             max-width:45%;
             border-radius: 70px;
-            // background: rgb(244, 240, 236);
         }
         &__content{
             

@@ -19,8 +19,8 @@
 <script>
     import HeaderComponent from '../components/HeaderComponent.vue';
     import FooterComponent from '../components/FooterComponent.vue';
-    import TaskEisenMatrixKanbanComponent from '../components/TaskEisenMatrixKanbanComponent.vue';
-    import TaskPointsComponent from '../components/TaskPointsComponent.vue';
+    import TaskEisenMatrixKanbanComponent from '../components/TasksMam/TaskEisenMatrixKanbanComponent.vue';
+    import TaskPointsComponent from '../components/TasksMam/TaskPointsComponent.vue';
     export default {
         components: {
             TaskEisenMatrixKanbanComponent, HeaderComponent, FooterComponent,TaskPointsComponent

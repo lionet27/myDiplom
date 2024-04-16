@@ -23,7 +23,7 @@ const TasksDad={
             },
             {
                 tasktext:'Повесить полку',
-                dateEnd:'2024-04-01',
+                dateEnd:'2024-04-19',
                 important:false,
                 urgently:true,
                 doing:false,

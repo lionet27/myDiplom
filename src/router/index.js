@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomePage from "@/pages/HomePage.vue";
-import TasksPage from '@/pages/TasksPage.vue';
+import TasksMamPage from '@/pages/TasksMamPage.vue';
 import TimeManagementAdvicesPage from '@/pages/TimeManagementAdvicesPage.vue';
 import TasksAddPage from '@/pages/TasksAddPage.vue';
 import TasksDadPage from '@/pages/TasksDadPage.vue';
@@ -18,9 +18,9 @@ const routes=[
         component:HomePage,
     },
     {
-        path:"/TasksPage",
-        name:"TasksPage",
-        component:TasksPage,
+        path:"/TasksMamPage",
+        name:"TasksMamPage",
+        component:TasksMamPage,
     },
     {
         path:"/TasksDadPage",

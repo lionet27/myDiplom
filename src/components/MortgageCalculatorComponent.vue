@@ -60,8 +60,8 @@
   export default {
     data() {
       return {
-        initialLoanAmount: 10000,
-        annualInterestRate: 5,
+        initialLoanAmount: 100000,
+        annualInterestRate: 12,
         loanTermInMonths: 12,
         payments: [],
         month:'',
