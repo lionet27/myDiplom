@@ -92,15 +92,7 @@
             },
                              
         }, 
-        methods: {           
-             deleteTask(tasktext) {
-                const index = this.tasks.findIndex(task => task.tasktext === tasktext);
-                if (index !== -1) {
-                    this.tasks.splice(index, 1);
-                } else {
-                console.error('Task with tasktext ' + tasktext + ' not found');
-                }
-            },
+        methods: {  
             doneToDoingTask(tasktext){
         const index = this.tasks.findIndex(task => task.tasktext === tasktext);
             if (index !== -1) {

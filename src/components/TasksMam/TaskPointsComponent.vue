@@ -1,12 +1,9 @@
 <template>
     <div class="pointsComponent center">
-        <!-- <h2>Баллы</h2> -->
         <div class="points" >
                 <h3>Всего набранно баллов {{ totalScoredPoints }}</h3>
                 <h4>Если выполнить оставшиеся задачи, можно набрать еще {{ possiblePoints }} баллов</h4>
-                    
         </div>
-      
   </div>
 </template>
 
@@ -17,9 +14,6 @@
       
       data() {
           return {
-            
-            
-              
           }
       }, 
      computed: {

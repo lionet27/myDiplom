@@ -103,6 +103,7 @@
             display: flex;
             justify-content: space-between;
             gap: 12px;
+            margin-top: 50px;
         }
         &__left{
             display: flex;

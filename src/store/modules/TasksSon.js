@@ -5,7 +5,7 @@ const TasksSon={
         tasks:[
             {
                 tasktext:'Сделать доклад',
-                dateEnd:'2024-04-01',
+                dateEnd:'2024-04-25',
                 important:true,
                 urgently:true,
                 doing:true,
@@ -42,6 +42,15 @@ const TasksSon={
             {
                 tasktext:'Сделать завтрак',
                 dateEnd:'2024-04-11',
+                important:true,
+                urgently:true,
+                doing:true,
+                done:false,
+                points:5,
+            },
+            {
+                tasktext:'Сделать задание по английскому языку',
+                dateEnd:'2024-04-20',
                 important:true,
                 urgently:true,
                 doing:true,

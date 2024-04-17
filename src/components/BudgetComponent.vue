@@ -1,4 +1,3 @@
-
 <template>
   <div class="center" >
     <div class="budgetTitle">
@@ -22,7 +21,6 @@
               <td class="budget__incoms__number" v-for="n in 12">{{getTotalMonth(this.incomItems,n)}}</td>
               <td class="budget__incoms__total">{{ getTotal(this.incomItems) }}</td>
           </tr>
-          
           <tr v-for="(item, index) in expensesItems" :key="index">
             <td class="budget__month">{{ item[0] }}</td>
             <td class="budget__month" v-for="n in 12"><input :class="{ 'overdue': (item[n]<0) }" class="budget__item" v-model.number="item[n]" type="number"></td>
@@ -39,10 +37,8 @@
             <td class="budget__saldo__number" :class="{ 'overdue': ((getTotalMonth(this.incomItems,n)-getTotalMonth(this.expensesItems,n))<0) }" v-for="n in 12">{{ (getTotalMonth(this.incomItems,n)-getTotalMonth(this.expensesItems,n))}}</td>
             <td class="budget__saldo__total" :class="{ 'overdue': (getTotal(this.incomItems)-getTotal(this.expensesItems)<0) }">{{ getTotal(this.incomItems)-getTotal(this.expensesItems) }}</td>
         </tr>
-
       </tbody>
     </table> 
-
    <div class="budget__year">
       <p>Итого доходов за год: {{ getTotal(this.incomItems)}}</p> 
       <p>Итого расходов за год: {{ getTotal(this.expensesItems) }}</p> 
@@ -50,7 +46,6 @@
     </div>
   </div>
 </template>
-
 <script>
 export default {
   data() {
@@ -62,7 +57,6 @@ export default {
         ['Аренда',0,0,0,0,0,0,0,0,0,0,0,0],
         ['Другое',0,0,0,0,0,0,0,0,0,0,0,0 ],
         ],
-        
         expensesItems: [  
          ['Аренда',0,0,0,0,0,0,0,0,0,0,0,0], 
          ['Кредиты',0,0,0,0,0,0,0,0,0,0,0,0],
@@ -79,7 +73,6 @@ export default {
          ['Другое',0,0,0,0,0,0,0,0,0,0,0,0],
         ],
     };
-    
   },
   methods: {
     getTotalState(item) {
@@ -98,7 +91,6 @@ export default {
        
   }
 }
-
 </script>    
 <style lang="scss" scoped>
 .overdue {
@@ -144,7 +136,6 @@ export default {
       vertical-align: top;
       font-family: Jost;
       font-size: 16px;
-      
       &__total{
          background-color: rgb(210, 114, 234);
          font-family: Jost;
@@ -160,7 +151,6 @@ export default {
       font-weight: bold;
       margin-top: 20px;
     }
- 
 }
 .budgetTitle{
     display: flex;
@@ -171,7 +161,6 @@ export default {
           font-size: 25px;
           margin-bottom: 10px;
     }
-    
   }
   @media (max-width:1024px) {
     .budget{

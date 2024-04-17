@@ -1,6 +1,5 @@
 <template>
    <div class="EisenhowerMatrixComponent center">
-
         <h1 class="EisenhowerMatrixComponent__title">Матрица Эйзенхауэра</h1>
         <div class="EisenhowerMatrix" >
             <p></p>
@@ -8,7 +7,6 @@
             <p class="EisenhowerMatrix__name">Не срочные задачи</p>
             <p class="EisenhowerMatrix__name">Важные <br>
                 задачи</p>
-        
                 <ul class="EisenhowerMatrixItem__tasks importantUrgentTasks" >
                     <TaskSonItemComponent  v-for="(task, index) in importantUrgentTasks" :key="index" :task="task" /> 
                 </ul>
@@ -19,21 +17,17 @@
                 <ul class="EisenhowerMatrixItem__tasks notImportantUrgentTasks"  >
                     <TaskSonItemComponent  v-for="(task, index) in notImportantUrgentTasks" :key="index" :task="task" />
             </ul>
-                    
                 <ul class="EisenhowerMatrixItem__tasks notImportantNotUrgentTasks" >
                     <TaskSonItemComponent  v-for="(task, index) in notImportantNotUrgentTasks" :key="index" :task="task" />
                 </ul>
-        
         </div>
     </div>
     <div class="kanbanComponent center">
         <h1 class="kanbanComponent__title center">Канбан доска</h1>
         <div class="kanban" >
-        
             <p class="kanban__name">Нужно сделать</p>
             <p class="kanban__name">В процессе выполнения</p>
             <p class="kanban__name">Сделано</p>
-        
                 <ul class="kanban__tasks" >
                     <TaskSonItemComponent  v-for="(task, index) in toDoTasks" :key="index" :task="task" /> 
                 </ul>
@@ -43,24 +37,18 @@
                 <ul class="kanban__tasks"  >
                     <li class="kanban__task" v-for="(task, index) in doneTasks" :key="index" @click="doneToDoingTask(task.tasktext)">{{ task.tasktext }}</li> 
                 </ul>
-
         </div>
     </div>
 </template>
-
 <script>
-    
     import TaskSonItemComponent from './TaskSonItemComponent.vue';
     import { mapState, mapGetters, mapMutations, mapActions,mapModules} from "vuex";
-
     export default {
         components: {
             TaskSonItemComponent,
         },
-     
         data() {
             return {
-                
             }
         }, 
        computed: {
@@ -89,27 +77,18 @@
             },
             doneTasks(){
                 return this.tasks.filter(task => task.done);
-            },
-                             
+            },             
         }, 
-        methods: {           
-             deleteTask(tasktext) {
+        methods: {  
+            doneToDoingTask(tasktext){
                 const index = this.tasks.findIndex(task => task.tasktext === tasktext);
                 if (index !== -1) {
-                    this.tasks.splice(index, 1);
+                if(this.tasks[index].done){
+                    this.tasks[index].done=false;
+                }
                 } else {
                 console.error('Task with tasktext ' + tasktext + ' not found');
                 }
-            },
-            doneToDoingTask(tasktext){
-        const index = this.tasks.findIndex(task => task.tasktext === tasktext);
-            if (index !== -1) {
-              if(this.tasks[index].done){
-                this.tasks[index].done=false;
-              }
-            } else {
-              console.error('Task with tasktext ' + tasktext + ' not found');
-            }
             },
         }
     }

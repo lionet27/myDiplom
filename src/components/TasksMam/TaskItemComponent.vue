@@ -26,13 +26,10 @@
     computed: {
             ...mapState({
                 tasks:(state)=>state.Tasks.tasks,
-                          
             }),
-          
     },
        
-    methods: {
-       
+    methods: {       
         deleteTask(tasktext) {
             const index = this.tasks.findIndex(task => task.tasktext === tasktext);
             if (index !== -1) {

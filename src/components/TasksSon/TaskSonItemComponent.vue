@@ -1,8 +1,6 @@
 <template>
     <li :class="{ 'overdue': !task.done && isOverdue(task.dateEnd) }" @click="toggleButtons" >
-      
-         {{task.tasktext}} до {{ task.dateEnd }}
-     
+        {{task.tasktext}} до {{ task.dateEnd }}     
       <div v-if="showButtons">
         <button class="button" @click="doingStatusTask(task.tasktext)">К выполнению/в процессе</button>
         <button class="button" @click="doneTask(task.tasktext)">Выполнена</button>
@@ -11,7 +9,6 @@
       </div>
     </li>
   </template>
-  
   <script>
    import { mapState, mapGetters, mapMutations, mapActions,mapModules} from "vuex";
   export default {
@@ -28,9 +25,7 @@
                 tasks:(state)=>state.TasksSon.tasks,
             }),
     },
-       
     methods: {
-       
         deleteTask(tasktext) {
             const index = this.tasks.findIndex(task => task.tasktext === tasktext);
             if (index !== -1) {
@@ -55,7 +50,6 @@
                 console.error('Task with tasktext ' + tasktext + ' not found');
               }
         },
-        
         editTask(tasktext){
           const index = this.tasks.findIndex(task => task.tasktext === tasktext);
               if (index !== -1) {
@@ -68,7 +62,6 @@
                 console.error('Task with tasktext ' + tasktext + ' not found');
               }
         },
-
       toggleButtons() {
         this.showButtons = !this.showButtons;
       },
@@ -77,8 +70,6 @@
             const end = new Date(dateEnd);
             return currentDate > end;
         }
-
-
     }
   };
   </script>
@@ -87,8 +78,6 @@
     .overdue {
         color: red;
         }
-  
-
     .button{
         background-color: rgb(191, 187, 182);
         border-radius: 2%;
@@ -96,7 +85,6 @@
         border: solid 1px rgb(102, 53, 11);
         &:hover{
             background-color: rgb(158, 226, 232);
-            
         }
     }
   </style>

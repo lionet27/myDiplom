@@ -2,7 +2,6 @@
     <div class="addTask center" >
         <h1 class="addTask__title">Добавление новой задачи</h1>
         <input class="addTask__content" type="text" v-model="familyMember" list="familyMembers" placeholder="Выберите члена семьи,которому назначается задача">
-        
             <datalist id="familyMembers">
                 <option value="мама"></option>
                 <option value="папа"></option>
@@ -20,9 +19,7 @@
         
         <input type="checkbox" v-model="newTask.doing">  Задача начала выполняться?<br>
         <input class="addTask__points" type="number" v-model="newTask.points" placeholder="<Баллы за выполнение задачи>" min="0" max="30"><br>
-
         <button class="addTask__buttons" @click="addTask(this.newTask)">Добавить задачу</button>
-
         <div class="addTask__list">
             <h2 class="addTask__list__title">Список задач:</h2>
             <ul v-if="this.familyMember==='мама'">
@@ -40,12 +37,14 @@
                     {{ task.tasktext }} - {{ task.dateEnd }}
                 </li>
             </ul>
-
+            <ul v-else-if="this.familyMember==='дочь'">
+                <li  v-for="(task, index) in tasksDaughter" :key="index">
+                    {{ task.tasktext }} - {{ task.dateEnd }}
+                </li>
+            </ul>
         </div>
   </div>
 </template>
-
-
 <script>
 import { mapState, mapGetters, mapMutations, mapActions,mapModules} from "vuex";
     export default {
@@ -61,19 +60,17 @@ import { mapState, mapGetters, mapMutations, mapActions,mapModules} from "vuex";
                     done:false,
                     points:'',
                 },
-            
             };
         },
         computed: {
             ...mapState({
                 tasks:(state)=>state.Tasks.tasks,
                 tasksDad:(state)=>state.TasksDad.tasks,
-                tasksSon:(state)=>state.TasksSon.tasks,              
+                tasksSon:(state)=>state.TasksSon.tasks, 
+                tasksDaughter:(state)=>state.TasksDaughter.tasks,             
             }),
-            
         }, 
-        methods: {                       
-       
+        methods: { 
         addTask(newTask){
             if(this.familyMember==="мама"){
                 this.tasks.push({
@@ -105,12 +102,20 @@ import { mapState, mapGetters, mapMutations, mapActions,mapModules} from "vuex";
                     doing:newTask.doing,
                     points: newTask.points 
                 });
+            }else if(this.familyMember==="дочь"){
+                this.tasksDaughter.push({
+                    tasktext: newTask.tasktext,
+                    dateEnd: newTask.dateEnd,
+                    important: newTask.important,
+                    urgently: newTask.urgently,
+                    done: false,
+                    doing:newTask.doing,
+                    points: newTask.points 
+                });
             }
-
         },
-
-            },  
-    }
+    },  
+}
 </script>
 
 <style lang="scss" scoped>

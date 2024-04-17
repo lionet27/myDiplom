@@ -7,16 +7,12 @@
     <div class="MortgageCalculator__loan">
       <label class="MortgageCalculator__loan__label" for="loanAmount">Размер кредита:</label>
       <input class="MortgageCalculator__loan__input" type="number" id="loanAmount" v-model="initialLoanAmount">
-  
       <label class="MortgageCalculator__loan__label" for="interestRate">Процентная ставка:</label>
       <input class="MortgageCalculator__loan__input" type="number" id="interestRate" v-model="annualInterestRate">
-  
       <label class="MortgageCalculator__loan__label" for="loanTerm">Срок кредита в месяцах:</label>
       <input class="MortgageCalculator__loan__input" type="number" id="loanTerm" v-model="loanTermInMonths">
-      
       <button class="MortgageCalculator__loan__button" @click="calculateAmortizationTable">Рассчитать таблицу погашения</button>
       <br>
-   
       <label class="MortgageCalculator__loan__label" for="additionalPaymentAmount">Сумма дополнительного платежа:</label>
       <input class="MortgageCalculator__loan__input" type="number" id="additionalPaymentAmount" v-model="additionalPaymentAmount">  
       <label class="MortgageCalculator__loan__label" for="month">Месяц внесения:</label>
@@ -51,11 +47,8 @@
           </tr>
         </tbody>
       </table>
-  
-      
     </div>
   </template>
-  
   <script>
   export default {
     data() {
@@ -84,7 +77,6 @@
             const interestPayment = balance * this.monthlyInterestRate;
             const principalPayment = this.monthlyPayment - interestPayment;
             balance -= principalPayment;
-            
             this.payments.push({ month: i + 1, balance: balance, monthlyPayment: this.monthlyPayment, principal: principalPayment, interest: interestPayment,extraPayment:0 });
           }
         },
@@ -99,8 +91,6 @@
                     this.payments[month-1].principal+=this.payments[month-1].balance;
                     this.payments[month-1].balance=0;
                   }
-              
-
               for (let i = month; i < this.payments.length; i++) {
                   this.payments[i].interest =this.payments[i-1].balance * this.monthlyInterestRate;
                   this.payments[i].principal = this.monthlyPayment - this.payments[i].interest+this.payments[i].extraPayment;
@@ -108,7 +98,6 @@
                     this.payments[i].principal=this.payments[i-1].balance;
                   }  
                   this.payments[i].balance = this.payments[i-1].balance-this.payments[i].principal;
-                
               }
             } else {
               console.log('Wrong month provided for additional payment.');
@@ -120,7 +109,6 @@
               this.payments[month-1].principal-=this.payments[month-1].extraPayment;
               this.payments[month-1].balance+=this.payments[month-1].extraPayment;
               this.payments[month-1].extraPayment=0;
-              
               for (let i = month; i < this.loanTermInMonths; i++) {
                 this.payments[i].interest=this.payments[i-1].balance * this.monthlyInterestRate;
                 this.payments[i].principal= this.monthlyPayment - this.payments[i].interest+this.payments[i].extraPayment;
